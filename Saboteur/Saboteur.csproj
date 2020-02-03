@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3B6B259-16D2-4BE4-A214-7323DE27547B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Saboteur</RootNamespace>
+    <AssemblyName>Saboteur</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Helpers\BoolToValueConverter.cs" />
+    <Compile Include="Helpers\CardIDToImageSourceConverter.cs" />
+    <Compile Include="Helpers\RadioBoolToIntConverter.cs" />
+    <Compile Include="Models\CardDeck.cs" />
+    <Compile Include="Models\ConfigModel.cs" />
+    <Compile Include="Models\GameBoard.cs" />
+    <Compile Include="Models\GameFlow.cs" />
+    <Compile Include="ViewModels\ConfigViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModel.cs" />
+    <Compile Include="ViewModels\PlayerViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\Components\AllPlayersView.xaml.cs">
+      <DependentUpon>AllPlayersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\GameBoardView.xaml.cs">
+      <DependentUpon>GameBoardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\PlayerHandsVerticalView.xaml.cs">
+      <DependentUpon>PlayerHandsVerticalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\PlayerHandsView.xaml.cs">
+      <DependentUpon>PlayerHandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigWindow.xaml.cs">
+      <DependentUpon>ConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesktopModeWindow.xaml.cs">
+      <DependentUpon>DesktopModeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ISaboteurDisplay.cs" />
+    <Compile Include="Views\MobileModeWindow.xaml.cs">
+      <DependentUpon>MobileModeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TextModeWindow.xaml.cs">
+      <DependentUpon>TextModeWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Components\AllPlayersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\GameBoardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\PlayerHandsVerticalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\PlayerHandsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DesktopModeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MobileModeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TextModeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\PathCard.cs" />
+    <Compile Include="Models\PlayerModel.cs" />
+    <Compile Include="Models\ActionCard.cs" />
+    <Compile Include="Models\TreasureCard.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\0.jpg" />
+    <Resource Include="Resources\Card\1.jpg" />
+    <Resource Include="Resources\Card\10.jpg" />
+    <Resource Include="Resources\Card\11.jpg" />
+    <Resource Include="Resources\Card\12.jpg" />
+    <Resource Include="Resources\Card\13.jpg" />
+    <Resource Include="Resources\Card\14.jpg" />
+    <Resource Include="Resources\Card\15.jpg" />
+    <Resource Include="Resources\Card\16.jpg" />
+    <Resource Include="Resources\Card\2.jpg" />
+    <Resource Include="Resources\Card\3.jpg" />
+    <Resource Include="Resources\Card\4.jpg" />
+    <Resource Include="Resources\Card\6.jpg" />
+    <Resource Include="Resources\Card\8.jpg" />
+    <Resource Include="Resources\Card\9.jpg" />
+    <Resource Include="Resources\Card\52.jpg" />
+    <Resource Include="Resources\Card\50.jpg" />
+    <Resource Include="Resources\Card\100.jpg" />
+    <Resource Include="Resources\Card\Index.png" />
+    <Resource Include="Resources\Card\53.jpg" />
+    <Resource Include="Resources\Card\51.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Background\Index.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\88.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\miner.jpg" />
+    <Resource Include="Resources\Card\saboteur.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\cardback.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Card\77.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

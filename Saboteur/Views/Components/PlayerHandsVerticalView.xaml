@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Saboteur.Views.Components.PlayerHandsVerticalView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Saboteur.Views.Components"
+             xmlns:helper="clr-namespace:Saboteur.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <helper:CardIDToImageSourceConverter x:Key="CardIDToImageSource"/>
+        <helper:BoolToStringConverter x:Key="BooltoColor" FalseValue="Azure" TrueValue="Lime"/>
+        <helper:BoolToStringConverter x:Key="BooltoSaboteur" FalseValue="/Resources/Card/miner.jpg" TrueValue="/Resources/Card/saboteur.jpg"/>
+    </UserControl.Resources>
+    <Grid Background="BlanchedAlmond">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Content="0" Tag="{Binding Hands[0].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}" Click="PlayerHands_Clicked"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="1" Tag="{Binding Hands[1].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}" Click="PlayerHands_Clicked"/>
+        <Button Grid.Row="1" Grid.Column="0" Content="2" Tag="{Binding Hands[2].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}" Click="PlayerHands_Clicked"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="3" Tag="{Binding Hands[3].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}" Click="PlayerHands_Clicked"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="4" Tag="{Binding Hands[4].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}" Click="PlayerHands_Clicked"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="Rotate" Click="Rotate_Clicked"/>
+            <Button Grid.Row="1" Content="Discard" Click="Discard_Clicked"/>
+        </Grid>
+    </Grid>
+</UserControl>

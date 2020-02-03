@@ -1,0 +1,52 @@
+﻿<Window x:Class="Saboteur.Views.DesktopModeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Saboteur.Views"
+        xmlns:component="clr-namespace:Saboteur.Views.Components"
+        mc:Ignorable="d"
+        Title="{Binding Name, StringFormat={}{0} - Saboteur}" Height="650" Width="1000">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <component:GameBoardView x:Name="GameBoardView" DataContext="{Binding}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="5"/>
+        <component:PlayerHandsView x:Name="PlayerHandsView" DataContext="{Binding}" Grid.Row="7" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="6"/>
+        <ScrollViewer Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" VerticalScrollBarVisibility="Auto">
+            <component:AllPlayersView x:Name="AllPlayersView" DataContext="{Binding}"/>
+        </ScrollViewer>
+        <ScrollViewer x:Name="GameLogDisplay" Grid.Row="0" Grid.Column="6" Grid.RowSpan="9" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Hidden">
+            <StackPanel x:Name="GameLog" Background="Azure" Margin="1">
+                <Label Content="Game Record" FontFamily="Consolas"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
+

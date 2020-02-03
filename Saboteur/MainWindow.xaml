@@ -1,0 +1,45 @@
+﻿<Window x:Class="Saboteur.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Saboteur"
+        xmlns:view="clr-namespace:Saboteur.Views"
+        xmlns:viewmodel="clr-namespace:Saboteur.ViewModels"
+        mc:Ignorable="d"
+        Title="Saboteur" Height="400" Width="300">
+    <Window.Resources>
+        <Style x:Key="MainWindowButton" TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Background/Index.png" Stretch="Fill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Content="New Game" Style="{StaticResource MainWindowButton}" Grid.Column="1" Grid.Row="2" Click="NewGameButton_Clicked"/>
+        <Button Content="Configuration" Style="{StaticResource MainWindowButton}" Grid.Column="1" Grid.Row="3" Click="ConfigButton_Clicked"/>
+        <Button Content="Exit" Style="{StaticResource MainWindowButton}" Grid.Column="1" Grid.Row="5" Click="ExitButton_Clicked"/>
+    </Grid>
+</Window>

@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="Saboteur.Views.Components.GameBoardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Saboteur.Views.Components"
+             xmlns:helper="clr-namespace:Saboteur.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <helper:CardIDToImageSourceConverter x:Key="CardIDToImageSource"/>
+        <helper:BoolToVisibilityConverter x:Key="BoolToVisibility" TrueValue="Visible" FalseValue="Hidden"/>
+        <helper:BoolToVisibilityConverter x:Key="BoolToInverseVisibility" TrueValue="Hidden" FalseValue="Visible"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="GameBoard" Margin="3" Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Content="0,0" Grid.Row="0" Grid.Column="0" Tag="{Binding GameBoardDisplay[0][0].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,1" Grid.Row="0" Grid.Column="1" Tag="{Binding GameBoardDisplay[0][1].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,2" Grid.Row="0" Grid.Column="2" Tag="{Binding GameBoardDisplay[0][2].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,3" Grid.Row="0" Grid.Column="3" Tag="{Binding GameBoardDisplay[0][3].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,4" Grid.Row="0" Grid.Column="4" Tag="{Binding GameBoardDisplay[0][4].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,5" Grid.Row="0" Grid.Column="5" Tag="{Binding GameBoardDisplay[0][5].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,6" Grid.Row="0" Grid.Column="6" Tag="{Binding GameBoardDisplay[0][6].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,7" Grid.Row="0" Grid.Column="7" Tag="{Binding GameBoardDisplay[0][7].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,8" Grid.Row="0" Grid.Column="8" Visibility="{Binding ReadTreasure[0], Converter={StaticResource BoolToVisibility}}" Tag="{Binding GameBoardDisplay[0][8].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="0,8" Grid.Row="0" Grid.Column="8" Visibility="{Binding ReadTreasure[0], Converter={StaticResource BoolToInverseVisibility}}" Tag="/Resources/Card/cardback.jpg"  Style="{StaticResource ButtonOfCard}"/>
+
+        <Button Content="1,0" Grid.Row="1" Grid.Column="0" Tag="{Binding GameBoardDisplay[1][0].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,1" Grid.Row="1" Grid.Column="1" Tag="{Binding GameBoardDisplay[1][1].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,2" Grid.Row="1" Grid.Column="2" Tag="{Binding GameBoardDisplay[1][2].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,3" Grid.Row="1" Grid.Column="3" Tag="{Binding GameBoardDisplay[1][3].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,4" Grid.Row="1" Grid.Column="4" Tag="{Binding GameBoardDisplay[1][4].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,5" Grid.Row="1" Grid.Column="5" Tag="{Binding GameBoardDisplay[1][5].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,6" Grid.Row="1" Grid.Column="6" Tag="{Binding GameBoardDisplay[1][6].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,7" Grid.Row="1" Grid.Column="7" Tag="{Binding GameBoardDisplay[1][7].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="1,8" Grid.Row="1" Grid.Column="8" Tag="{Binding GameBoardDisplay[1][8].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+
+        <Button Content="2,0" Grid.Row="2" Grid.Column="0" Tag="{Binding GameBoardDisplay[2][0].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,1" Grid.Row="2" Grid.Column="1" Tag="{Binding GameBoardDisplay[2][1].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,2" Grid.Row="2" Grid.Column="2" Tag="{Binding GameBoardDisplay[2][2].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,3" Grid.Row="2" Grid.Column="3" Tag="{Binding GameBoardDisplay[2][3].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,4" Grid.Row="2" Grid.Column="4" Tag="{Binding GameBoardDisplay[2][4].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,5" Grid.Row="2" Grid.Column="5" Tag="{Binding GameBoardDisplay[2][5].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,6" Grid.Row="2" Grid.Column="6" Tag="{Binding GameBoardDisplay[2][6].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,7" Grid.Row="2" Grid.Column="7" Tag="{Binding GameBoardDisplay[2][7].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,8" Grid.Row="2" Grid.Column="8" Visibility="{Binding ReadTreasure[1], Converter={StaticResource BoolToVisibility}}" Tag="{Binding GameBoardDisplay[2][8].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="2,8" Grid.Row="2" Grid.Column="8" Visibility="{Binding ReadTreasure[1], Converter={StaticResource BoolToInverseVisibility}}" Tag="/Resources/Card/cardback.jpg"  Style="{StaticResource ButtonOfCard}"/>
+
+        <Button Content="3,0" Grid.Row="3" Grid.Column="0" Tag="{Binding GameBoardDisplay[3][0].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,1" Grid.Row="3" Grid.Column="1" Tag="{Binding GameBoardDisplay[3][1].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,2" Grid.Row="3" Grid.Column="2" Tag="{Binding GameBoardDisplay[3][2].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,3" Grid.Row="3" Grid.Column="3" Tag="{Binding GameBoardDisplay[3][3].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,4" Grid.Row="3" Grid.Column="4" Tag="{Binding GameBoardDisplay[3][4].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,5" Grid.Row="3" Grid.Column="5" Tag="{Binding GameBoardDisplay[3][5].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,6" Grid.Row="3" Grid.Column="6" Tag="{Binding GameBoardDisplay[3][6].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,7" Grid.Row="3" Grid.Column="7" Tag="{Binding GameBoardDisplay[3][7].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="3,8" Grid.Row="3" Grid.Column="8" Tag="{Binding GameBoardDisplay[3][8].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+
+        <Button Content="4,0" Grid.Row="4" Grid.Column="0" Tag="{Binding GameBoardDisplay[4][0].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,1" Grid.Row="4" Grid.Column="1" Tag="{Binding GameBoardDisplay[4][1].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,2" Grid.Row="4" Grid.Column="2" Tag="{Binding GameBoardDisplay[4][2].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,3" Grid.Row="4" Grid.Column="3" Tag="{Binding GameBoardDisplay[4][3].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,4" Grid.Row="4" Grid.Column="4" Tag="{Binding GameBoardDisplay[4][4].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,5" Grid.Row="4" Grid.Column="5" Tag="{Binding GameBoardDisplay[4][5].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,6" Grid.Row="4" Grid.Column="6" Tag="{Binding GameBoardDisplay[4][6].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,7" Grid.Row="4" Grid.Column="7" Tag="{Binding GameBoardDisplay[4][7].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,8" Grid.Row="4" Grid.Column="8" Visibility="{Binding ReadTreasure[2], Converter={StaticResource BoolToVisibility}}" Tag="{Binding GameBoardDisplay[4][8].Id, Converter={StaticResource CardIDToImageSource}}" Style="{StaticResource ButtonOfCard}"/>
+        <Button Content="4,8" Grid.Row="4" Grid.Column="8" Visibility="{Binding ReadTreasure[2], Converter={StaticResource BoolToInverseVisibility}}" Tag="/Resources/Card/cardback.jpg"  Style="{StaticResource ButtonOfCard}"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="Saboteur.Views.TextModeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Saboteur.Views"
+        mc:Ignorable="d"
+        Title="{Binding Player.Name, StringFormat={}{0} - Saboteur}" Height="700" Width="500">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+    </Window.Resources>
+    <ScrollViewer x:Name="GameConsole" VerticalScrollBarVisibility="Hidden">
+        <StackPanel x:Name="GameLog" Background="Black">
+            <TextBox x:Name="UserInput" 
+                     Text=">>> "
+                     TextChanged="UserInput_TextChanged" 
+                     KeyDown="Enter_KeyDown"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

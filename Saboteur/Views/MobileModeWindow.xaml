@@ -1,0 +1,44 @@
+﻿<Window x:Class="Saboteur.Views.MobileModeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Saboteur.Views"
+        xmlns:component="clr-namespace:Saboteur.Views.Components"
+        xmlns:helper="clr-namespace:Saboteur.Helpers"
+        mc:Ignorable="d"
+        Title="{Binding Name, StringFormat={}{0} - Saboteur}" Height="350" Width="550">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="11"/>
+        </Style>
+        <helper:BoolToStringConverter x:Key="BooltoSaboteur" FalseValue="/Resources/Card/miner.jpg" TrueValue="/Resources/Card/saboteur.jpg"/>
+    </Window.Resources>
+    <DockPanel LastChildFill="true">
+        <DockPanel LastChildFill="true" DockPanel.Dock="Right">
+            <Button Content="My Hands" DockPanel.Dock="Top"  Click="MyHandsButton_Click"/>
+            <Button Content="Players" DockPanel.Dock="Top"  Click="PlayersButton_Click"/>
+            <Button Content="My Party" DockPanel.Dock="Top" Click="MyPartyButton_Click"/>
+            <Button Content="Game Log" DockPanel.Dock="Top" Click="GameLogButton_Click"/>
+
+            <ScrollViewer x:Name="PlayersDisplay" Visibility="Collapsed"  DockPanel.Dock="Top" Width="130">
+                <component:AllPlayersView x:Name="AllPlayersView" DockPanel.Dock="Top" DataContext="{Binding}"/>
+            </ScrollViewer>
+
+            <ScrollViewer x:Name="GameLogDisplay" Visibility="Collapsed" DockPanel.Dock="Top" Width="130" VerticalScrollBarVisibility="Hidden">
+                <StackPanel x:Name="GameLog" Background="Azure"/>
+            </ScrollViewer>
+
+            <component:PlayerHandsVerticalView x:Name="PlayerHandsView" DockPanel.Dock="Top" Width="130" DataContext="{Binding}"/>
+
+            <Grid x:Name="PartyDisplay" DockPanel.Dock="Top" Width="130" Visibility="Collapsed">
+                <Button x:Name="IsSaboteur" Visibility="Hidden" Grid.Column="0" Tag="{Binding IsSaboteur, Converter={StaticResource BooltoSaboteur}}" Style="{StaticResource ButtonOfCard}" Click="TogglePartyVisibilty_Clicked"/>
+                <Button x:Name="IsHidden" Grid.Column="0" Tag="/Resources/Card/cardback.jpg"  Style="{StaticResource ButtonOfCard}" Click="TogglePartyVisibilty_Clicked"/>
+            </Grid>
+
+        </DockPanel>
+        <component:GameBoardView x:Name="GameBoardView" DataContext="{Binding}"/>
+    </DockPanel>
+</Window>

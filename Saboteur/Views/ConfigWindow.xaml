@@ -1,0 +1,39 @@
+﻿<Window x:Class="Saboteur.Views.ConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Saboteur.Views"
+        xmlns:helper="clr-namespace:Saboteur.Helpers"
+        mc:Ignorable="d"
+        Title="Saboteur - Game Configuration" Height="400" Width="650">
+    <Window.Resources>
+        <helper:RadioBoolToIntConverter x:Key="RadioBoolToInt"/>
+    </Window.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <Label Content="Saboteur - Configuration" FontWeight="Bold"/>
+            <WrapPanel Style="{StaticResource WrapPanelFormat}">
+                <Label Content="Number of Players : "/>
+                <Slider x:Name="NumberOfPlayer" Value="{Binding NumberOfPlayers}" Minimum="{Binding MinPlayers}" Maximum="{Binding MaxPlayers}" Style="{StaticResource SliderFormat}"/>
+                <Label Content="{Binding NumberOfPlayers}"/>
+            </WrapPanel>
+
+            <ItemsControl ItemsSource="{Binding PlayerInfoList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Style="{StaticResource WrapPanelFormat}">
+                            <Label Content="Player Name: "/>
+                            <TextBox Text="{Binding Name}" Style="{StaticResource PlayerNameBoxFormat}"/>
+                            <Label Content="Game Mode: "/>
+                            <RadioButton IsChecked="{Binding GameMode, Converter={StaticResource RadioBoolToInt}, ConverterParameter=0}" Content="PC-Mode" Style="{StaticResource RadioButtonFormat}"/>
+                            <RadioButton IsChecked="{Binding GameMode, Converter={StaticResource RadioBoolToInt}, ConverterParameter=1}" Content="Mobile-Mode" Style="{StaticResource RadioButtonFormat}"/>
+                            <RadioButton IsChecked="{Binding GameMode, Converter={StaticResource RadioBoolToInt}, ConverterParameter=2}" Content="Text-Only" Style="{StaticResource RadioButtonFormat}"/>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Button Content="Save" Style="{StaticResource ButtonFomat}" Click="SaveButton_Clicked"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
